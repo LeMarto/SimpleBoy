@@ -42,37 +42,55 @@ def add_8(op1, op2):
     carry = False
     half_carry = False
     zero = False
+    substract = False
+
     #carry flag
     if result > 0xFF:
         carry = True
+
     #half carry flag
     if (op1 & 0xF) + (op2 & 0xF) > 0xF:
         half_carry = True
+
     #zero flag
     if result == 0:
         zero = True
+    
+    #substract flag
+    if (op1 > 0 and op2 < 0) or (op1 < 0) and (op2 > 0):
+        substract = True
+    
     #cap the result
     if carry:
         result = 0
 
-    return Result(result, zero, False, half_carry, carry)
+    return Result(result, zero, substract, half_carry, carry)
 
 def add_16(op1, op2):
     result = op1 + op2
     carry = False
     half_carry = False
     zero = False
+    substract = False
+
     #carry flag
     if result > 0xFFFF:
         carry = True
+    
     #half carry flag
     if (op1 & 0xFF) + (op2 & 0xFF) > 0xFF:
         half_carry = True
+    
     #zero flag
     if result == 0:
         zero = True
+    
+    #substract flag
+    if (op1 > 0 and op2 < 0) or (op1 < 0) and (op2 > 0):
+        substract = True
+
     #cap the result
     if carry:
         result = 0
 
-    return Result(result, zero, False, half_carry, carry)
+    return Result(result, zero, substract, half_carry, carry)
