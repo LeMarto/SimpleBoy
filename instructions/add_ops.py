@@ -227,20 +227,14 @@ def op_0x39():
 
 def op_0x88():
     #ADC A, B
-    #Add the contents of register B and the CY flag to the contents of register A, and store the results in register A.
-    op1 = utils.add_8(registers.B, registers.carry_flag)
-    registers.zero_flag = op1.zero_flag
-    registers.substract_flag = False
-    registers.half_carry_flag = op1.half_carry_flag
-    registers.carry_flag = op1.carry_flag
-    
-    op2 = utils.add_8(op1.value, registers.A)
-    registers.zero_flag = op2.zero_flag
-    registers.substract_flag = False
-    registers.half_carry_flag = op2.half_carry_flag
-    registers.carry_flag = op2.carry_flag
+    #Add the contents of register B and the CY flag to the contents of register A, and store the results in register A.    
+    result = utils.add_8(registers.B + (1 if registers.carry_flag else 0), registers.A)
+    registers.A = result.value
 
-    registers.A = op2.value
+    registers.zero_flag = result.zero_flag
+    registers.substract_flag = False
+    registers.half_carry_flag = result.half_carry_flag
+    registers.carry_flag = result.carry_flag
 
     registers.PC += 1
     cpu.wait_for_cycles(2)
@@ -248,151 +242,113 @@ def op_0x88():
 def op_0x89():
     #ADC A, C
     #Add the contents of register C and the CY flag to the contents of register A, and store the results in register A.
-    op1 = utils.add_8(registers.C, registers.carry_flag)
-    registers.zero_flag = op1.zero_flag
-    registers.substract_flag = False
-    registers.half_carry_flag = op1.half_carry_flag
-    registers.carry_flag = op1.carry_flag
+    result = utils.add_8(registers.C + (1 if registers.carry_flag else 0), registers.A)
+    registers.A = result.value
     
-    op2 = utils.add_8(op1.value, registers.A)
-    registers.zero_flag = op2.zero_flag
+    registers.zero_flag = result.zero_flag
     registers.substract_flag = False
-    registers.half_carry_flag = op2.half_carry_flag
-    registers.carry_flag = op2.carry_flag
+    registers.half_carry_flag = result.half_carry_flag
+    registers.carry_flag = result.carry_flag
 
-    registers.A = op2.value
     registers.PC += 1
     cpu.wait_for_cycles(2)
 
 def op_0x8A():
     #ADC A, D
     #Add the contents of register D and the CY flag to the contents of register A, and store the results in register A.
-    op1 = utils.add_8(registers.D, registers.carry_flag)
-    registers.zero_flag = op1.zero_flag
-    registers.substract_flag = False
-    registers.half_carry_flag = op1.half_carry_flag
-    registers.carry_flag = op1.carry_flag
+    result = utils.add_8(registers.D + (1 if registers.carry_flag else 0), registers.A)
+    registers.A = result.value
     
-    op2 = utils.add_8(op1.value, registers.A)
-    registers.zero_flag = op2.zero_flag
+    registers.zero_flag = result.zero_flag
     registers.substract_flag = False
-    registers.half_carry_flag = op2.half_carry_flag
-    registers.carry_flag = op2.carry_flag
+    registers.half_carry_flag = result.half_carry_flag
+    registers.carry_flag = result.carry_flag
 
-    registers.A = op2.value
     registers.PC += 1
     cpu.wait_for_cycles(2)
 
 def op_0x8B():
     #ADC A, E
     #Add the contents of register E and the CY flag to the contents of register A, and store the results in register A.
-    op1 = utils.add_8(registers.E, registers.carry_flag)
-    registers.zero_flag = op1.zero_flag
-    registers.substract_flag = False
-    registers.half_carry_flag = op1.half_carry_flag
-    registers.carry_flag = op1.carry_flag
+    result = utils.add_8(registers.E + (1 if registers.carry_flag else 0), registers.A)
+    registers.A = result.value
     
-    op2 = utils.add_8(op1.value, registers.A)
-    registers.zero_flag = op2.zero_flag
+    registers.zero_flag = result.zero_flag
     registers.substract_flag = False
-    registers.half_carry_flag = op2.half_carry_flag
-    registers.carry_flag = op2.carry_flag
+    registers.half_carry_flag = result.half_carry_flag
+    registers.carry_flag = result.carry_flag
 
-    registers.A = op2.value
     registers.PC += 1
     cpu.wait_for_cycles(2)
 
 def op_0x8C():
     #ADC A, H
     #Add the contents of register H and the CY flag to the contents of register A, and store the results in register A.
-    op1 = utils.add_8(registers.H, registers.carry_flag)
-    registers.zero_flag = op1.zero_flag
-    registers.substract_flag = False
-    registers.half_carry_flag = op1.half_carry_flag
-    registers.carry_flag = op1.carry_flag
+    result = utils.add_8(registers.H + (1 if registers.carry_flag else 0), registers.A)
+    registers.A = result.value
     
-    op2 = utils.add_8(op1.value, registers.A)
-    registers.zero_flag = op2.zero_flag
+    registers.zero_flag = result.zero_flag
     registers.substract_flag = False
-    registers.half_carry_flag = op2.half_carry_flag
-    registers.carry_flag = op2.carry_flag
+    registers.half_carry_flag = result.half_carry_flag
+    registers.carry_flag = result.carry_flag
 
-    registers.A = op2.value
     registers.PC += 1
     cpu.wait_for_cycles(2)
 
 def op_0x8D():
     #ADC A, L
     #Add the contents of register L and the CY flag to the contents of register A, and store the results in register A.
-    op1 = utils.add_8(registers.L, registers.carry_flag)
-    registers.zero_flag = op1.zero_flag
-    registers.substract_flag = False
-    registers.half_carry_flag = op1.half_carry_flag
-    registers.carry_flag = op1.carry_flag
+    result = utils.add_8(registers.L + (1 if registers.carry_flag else 0), registers.A)
+    registers.A = result.value
     
-    op2 = utils.add_8(op1.value, registers.A)
-    registers.zero_flag = op2.zero_flag
+    registers.zero_flag = result.zero_flag
     registers.substract_flag = False
-    registers.half_carry_flag = op2.half_carry_flag
-    registers.carry_flag = op2.carry_flag
+    registers.half_carry_flag = result.half_carry_flag
+    registers.carry_flag = result.carry_flag
 
-    registers.A = op2.value
     registers.PC += 1
     cpu.wait_for_cycles(2)
 
 def op_0x8E():
     #ADC A, (HL)
     #Add the contents of memory specified by register pair HL and the CY flag to the contents of register A, and store the results in register A.
-    op1 = utils.add_8(memory.Get(registers.HL), registers.carry_flag)
-    registers.zero_flag = op1.zero_flag
-    registers.substract_flag = False
-    registers.half_carry_flag = op1.half_carry_flag
-    registers.carry_flag = op1.carry_flag
+    result = utils.add_8(memory.Get(registers.HL) + (1 if registers.carry_flag else 0), registers.A)
+    registers.A = result.value
     
-    op2 = utils.add_8(op1.value, registers.A)
-    registers.zero_flag = op2.zero_flag
+    registers.zero_flag = result.zero_flag
     registers.substract_flag = False
-    registers.half_carry_flag = op2.half_carry_flag
-    registers.carry_flag = op2.carry_flag
+    registers.half_carry_flag = result.half_carry_flag
+    registers.carry_flag = result.carry_flag
 
-    registers.A = op2.value
     registers.PC += 1
     cpu.wait_for_cycles(2)
 
 def op_0x8F():
     #ADC A, A
     #Add the contents of register A and the CY flag to the contents of register A, and store the results in register A.
-    op1 = utils.add_8(registers.A, registers.carry_flag)
-    registers.zero_flag = op1.zero_flag
-    registers.substract_flag = False
-    registers.half_carry_flag = op1.half_carry_flag
-    registers.carry_flag = op1.carry_flag
+    result = utils.add_8(registers.A + (1 if registers.carry_flag else 0), registers.A)
+    registers.A = result.value
     
-    op2 = utils.add_8(op1.value, registers.A)
-    registers.zero_flag = op2.zero_flag
+    registers.zero_flag = result.zero_flag
     registers.substract_flag = False
-    registers.half_carry_flag = op2.half_carry_flag
-    registers.carry_flag = op2.carry_flag
+    registers.half_carry_flag = result.half_carry_flag
+    registers.carry_flag = result.carry_flag
 
-    registers.A = op2.value
     registers.PC += 1
     cpu.wait_for_cycles(2)
 
 def op_0xCE():
     #ADC A, d8
     #Add the contents of the 8-bit immediate operand d8 and the CY flag to the contents of register A, and store the results in register A.
-    op1 = utils.add_8(memory.Get(registers.PC + 1), registers.carry_flag)
-    registers.zero_flag = op1.zero_flag
-    registers.substract_flag = False
-    registers.half_carry_flag = op1.half_carry_flag
-    registers.carry_flag = op1.carry_flag
-    
-    op2 = utils.add_8(op1.value, registers.A)
-    registers.zero_flag = op2.zero_flag
-    registers.substract_flag = False
-    registers.half_carry_flag = op2.half_carry_flag
-    registers.carry_flag = op2.carry_flag
+    d8 = memory.Get(registers.PC + 1)
 
-    registers.A = op2.value
+    result = utils.add_8(d8 + (1 if registers.carry_flag else 0), registers.A)
+    registers.A = result.value
+    
+    registers.zero_flag = result.zero_flag
+    registers.substract_flag = False
+    registers.half_carry_flag = result.half_carry_flag
+    registers.carry_flag = result.carry_flag
+
     registers.PC += 2
     cpu.wait_for_cycles(2)
