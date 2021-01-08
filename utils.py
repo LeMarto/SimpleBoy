@@ -37,6 +37,19 @@ class Result:
         self.zero_flag = zero_flag
         self.substract_flag = substract_flag
 
+def and_8(op1, op2):
+    result = op1 & op2
+    carry = False
+    half_carry = True
+    zero = False
+    substract = False
+
+    #zero flag
+    if result == 0:
+        zero = True
+
+    return Result(result, zero, substract, half_carry, carry)
+
 def add_8(op1, op2):
     result = op1 + op2
     carry = False
