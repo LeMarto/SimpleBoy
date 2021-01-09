@@ -50,6 +50,32 @@ def and_8(op1, op2):
 
     return Result(result, zero, substract, half_carry, carry)
 
+def or_8(op1, op2):
+    result = op1 | op2
+    carry = False
+    half_carry = False
+    zero = False
+    substract = False
+
+    #zero flag
+    if result == 0:
+        zero = True
+
+    return Result(result, zero, substract, half_carry, carry)
+
+def xor_8(op1, op2):
+    result = op1 ^ op2
+    carry = False
+    half_carry = False
+    zero = False
+    substract = False
+
+    #zero flag
+    if result == 0:
+        zero = True
+
+    return Result(result, zero, substract, half_carry, carry)
+
 def add_8(op1, op2):
     result = op1 + op2
     carry = False
